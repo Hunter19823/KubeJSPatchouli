@@ -22,11 +22,15 @@ public class Kubejsdocumentation {
     public Kubejsdocumentation() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(Kubejsdocumentation::onDataGather);
         LOGGER.info("Hello from Kubejsdocumentation!");
+
     }
 
     @SubscribeEvent
     public static void onDataGather( GatherDataEvent event) {
         LOGGER.info("Data Generated!");
+        event.includeClient();
+        event.includeServer();
+        event.includeDev();
         List<PatchouliFile> patchouliFiles = TestBook.getTestBook();
         patchouliFiles.forEach(file -> event.getGenerator().addProvider(new PatchoiliDataProvider(event.getGenerator(),file)));
     }

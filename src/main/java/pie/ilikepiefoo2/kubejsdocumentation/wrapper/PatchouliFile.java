@@ -16,17 +16,14 @@ public interface PatchouliFile<T> {
         Arrays.stream(this.getClass().getFields()).iterator().forEachRemaining(field -> {
             try{
                 if(field.get(this) != null) {
-                    if(field.getType().isInstance(Collection.class) || field.getType().isArray()){
+                    if (field.getType().isArray() || Iterable.class.isAssignableFrom(field.getType())){
                         JsonArray jsonArray = new JsonArray();
-                        if(field.get(this) instanceof Collection){
-                            ((Collection) field.get(this)).forEach((item) -> addJsonArray(item, jsonArray));
-                        }else if((field.get(this).getClass().isArray())){
-                            for(Object obj : ((Object[]) field.get(this))){
-                                addJsonArray(obj, jsonArray);
-                            }
+                        for(Object obj : (Iterable) field.get(this)){
+                            addJsonArray(obj, jsonArray);
                         }
                         json.add(field.getName(), jsonArray);
-                    }else {
+                    }
+                    else {
                         json.addProperty(field.getName(), field.get(this).toString());
                     }
                 }

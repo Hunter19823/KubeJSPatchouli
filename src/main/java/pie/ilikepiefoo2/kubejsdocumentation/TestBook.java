@@ -32,6 +32,7 @@ public class TestBook {
         relationsPage.setEntries(entries);
         EntryWrapper entry = new EntryWrapper("TestEntry", "TestEntry Description", "minecraft:stone#64",List.of(textPage,linkPage,imagePage,relationsPage));
         entries.add(entry.getResourceLocation().toString());
+        FILE_LIST.add(entry);
         return FILE_LIST;
     }
 }
