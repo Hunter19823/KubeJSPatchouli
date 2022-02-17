@@ -1,6 +1,10 @@
 package pie.ilikepiefoo2.kubejsdocumentation.wrapper;
 
+import net.minecraft.resources.ResourceLocation;
+
 import java.util.List;
+
+import static pie.ilikepiefoo2.kubejsdocumentation.Kubejsdocumentation.MOD_ID;
 
 public class EntryWrapper implements PatchouliFile<EntryWrapper> {
     public String name;
@@ -22,14 +26,23 @@ public class EntryWrapper implements PatchouliFile<EntryWrapper> {
         this.icon = icon;
         this.pages = pages;
     }
+    public EntryWrapper( String name, CategoryWrapper category, String icon, List<PageWrapper> pages ) {
+        this(name, category.getResourceLocation().toString(), icon, pages);
+    }
 
     @Override
     public String getFileName() {
-        return name;
+        return name.toLowerCase();
     }
 
-    public String getId() {
-        return null;
+    @Override
+    public String getLocalPath(){
+        return "en_us/entries/"+getFileName()+getFileType();
+    }
+
+    @Override
+    public ResourceLocation getResourceLocation() {
+        return new ResourceLocation(MOD_ID, getFileName());
     }
 
     public String getName() {
@@ -46,6 +59,10 @@ public class EntryWrapper implements PatchouliFile<EntryWrapper> {
 
     public void setCategory( String category ) {
         this.category = category;
+    }
+
+    public void setCategory( CategoryWrapper category ) {
+        this.category = category.getResourceLocation().toString();
     }
 
     public String getIcon() {

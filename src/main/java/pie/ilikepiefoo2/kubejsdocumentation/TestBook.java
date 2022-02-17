@@ -19,19 +19,20 @@ public class TestBook {
         if(FILE_LIST.size() != 0)
             return FILE_LIST;
         BookWrapper book = new BookWrapper("TestBook", "TestBook");
+        book.dont_generatebook = false;
         FILE_LIST.add(book);
         CategoryWrapper category = new CategoryWrapper("TestCategory", "TestCategory Description", "minecraft:stone#64");
         FILE_LIST.add(category);
         TextPageWrapper textPage = new TextPageWrapper("This is the test page.");
         LinkPageWrapper linkPage = new LinkPageWrapper("This is the test page.", "https://minecraft.gamepedia.com/","This is a link to the Minecraft Wiki");
-        ImagePageWrapper imagePage = new ImagePageWrapper(List.of("https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/90/Minecraft_Wiki_header.svg/revision/latest/scale-to-width-down/300?cb=20211226202542"));
+        ImagePageWrapper imagePage = new ImagePageWrapper(List.of("patchouli:textures/gui/book_green.png"));
         imagePage.setText("This image page also has text!");
         RelationsPageWrapper relationsPage = new RelationsPageWrapper();
         relationsPage.setText("This is a relations page. It links to other pages.");
         List<String> entries = new ArrayList<>();
         relationsPage.setEntries(entries);
-        EntryWrapper entry = new EntryWrapper("TestEntry", "TestEntry Description", "minecraft:stone#64",List.of(textPage,linkPage,imagePage,relationsPage));
-        entries.add(entry.getResourceLocation().toString());
+        EntryWrapper entry = new EntryWrapper("TestEntry", "patchouli:testcategory", "minecraft:stone#64",List.of(textPage,linkPage,imagePage,relationsPage));
+        relationsPage.getEntries().add("patchouli:testentry");
         FILE_LIST.add(entry);
         return FILE_LIST;
     }

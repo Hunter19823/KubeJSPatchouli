@@ -51,12 +51,14 @@ public interface PatchouliFile<T> {
     }
 
     default String getLocalPath() {
-        return getFileName().toLowerCase()+".json";
+        return "en_us/"+getFileName().toLowerCase()+getFileType();
     }
 
     String getFileName();
 
-    default ResourceLocation getResourceLocation(){
-        return new ResourceLocation(MOD_ID, getLocalPath());
+    default String getFileType() {
+        return ".json";
     }
+
+    ResourceLocation getResourceLocation();
 }

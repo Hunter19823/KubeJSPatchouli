@@ -1,6 +1,10 @@
 package pie.ilikepiefoo2.kubejsdocumentation.wrapper;
 
 
+import net.minecraft.resources.ResourceLocation;
+
+import static pie.ilikepiefoo2.kubejsdocumentation.Kubejsdocumentation.MOD_ID;
+
 public class BookWrapper implements PatchouliFile<BookWrapper> {
     public String name;
     public String landing_text;
@@ -39,7 +43,17 @@ public class BookWrapper implements PatchouliFile<BookWrapper> {
 
     @Override
     public String getFileName() {
-        return name;
+        return "book";
+    }
+
+    @Override
+    public String getLocalPath() {
+        return "book.json";
+    }
+
+    @Override
+    public ResourceLocation getResourceLocation() {
+        return new ResourceLocation(MOD_ID, MOD_ID);
     }
 
     public String getName() {

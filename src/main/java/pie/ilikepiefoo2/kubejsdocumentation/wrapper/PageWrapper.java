@@ -1,5 +1,7 @@
 package pie.ilikepiefoo2.kubejsdocumentation.wrapper;
 
+import net.minecraft.resources.ResourceLocation;
+
 public class PageWrapper implements PatchouliFile<PageWrapper> {
     public String type;
     public String advancement;
@@ -13,6 +15,11 @@ public class PageWrapper implements PatchouliFile<PageWrapper> {
     @Override
     public String getFileName() {
         return type;
+    }
+
+    @Override
+    public ResourceLocation getResourceLocation() {
+        return null;
     }
 
     public String getType() {

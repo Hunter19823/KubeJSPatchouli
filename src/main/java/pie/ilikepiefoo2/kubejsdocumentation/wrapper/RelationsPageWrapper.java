@@ -1,5 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.wrapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RelationsPageWrapper extends PageWrapper{
@@ -17,6 +18,12 @@ public class RelationsPageWrapper extends PageWrapper{
 
     public void setEntries( List<String> entries ) {
         this.entries = entries;
+    }
+
+    public void addEntry( EntryWrapper entry ) {
+        if( entries == null )
+            this.entries = new ArrayList<>();
+        entries.add(entry.getResourceLocation().toString());
     }
 
     public String getTitle() {

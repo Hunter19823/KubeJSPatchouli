@@ -20,7 +20,8 @@ public class PatchoiliDataProvider implements net.minecraft.data.DataProvider {
 
     @Override
     public void run( HashCache cache ) throws IOException {
-        Path path = Path.of("data/"+Kubejsdocumentation.MOD_ID +"/patchouli_books/"+file.getLocalPath());
+        //Path path = Path.of("data/"+Kubejsdocumentation.MOD_ID +"/patchouli_books/test/"+file.getLocalPath());
+        Path path = Path.of("patchouli_books/test/"+file.getLocalPath());
         net.minecraft.data.DataProvider.save(GSON,cache, file.toJSON(), path);
     }
 

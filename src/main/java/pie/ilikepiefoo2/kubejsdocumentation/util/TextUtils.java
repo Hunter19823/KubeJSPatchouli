@@ -1,5 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.util;
 
+import pie.ilikepiefoo2.kubejsdocumentation.wrapper.CategoryWrapper;
 import pie.ilikepiefoo2.kubejsdocumentation.wrapper.EntryWrapper;
 
 import java.awt.Color;
@@ -51,7 +52,13 @@ public class TextUtils {
 
     public static String embedLink( String text, EntryWrapper entry) {
         return text + "$(l:" +
-                entry.getId() +
+                entry.getResourceLocation().toString() +
+                ")";
+    }
+
+    public static String embedLink( String text, CategoryWrapper category) {
+        return text + "$(l:" +
+                category.getResourceLocation().toString() +
                 ")";
     }
 

@@ -1,5 +1,9 @@
 package pie.ilikepiefoo2.kubejsdocumentation.wrapper;
 
+import net.minecraft.resources.ResourceLocation;
+
+import static pie.ilikepiefoo2.kubejsdocumentation.Kubejsdocumentation.MOD_ID;
+
 public class CategoryWrapper implements PatchouliFile<CategoryWrapper> {
     public String name;
     public String description;
@@ -17,7 +21,17 @@ public class CategoryWrapper implements PatchouliFile<CategoryWrapper> {
 
     @Override
     public String getFileName() {
-        return name;
+        return name.toLowerCase();
+    }
+
+    @Override
+    public String getLocalPath() {
+        return "en_us/categories/" + getFileName() + getFileType();
+    }
+
+    @Override
+    public ResourceLocation getResourceLocation() {
+        return new ResourceLocation( MOD_ID, getFileName() );
     }
 
     public String getName() {
