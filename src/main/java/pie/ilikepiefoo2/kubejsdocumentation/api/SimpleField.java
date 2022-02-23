@@ -1,6 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.api;
 
-public interface SimpleField extends Annotatable {
+public interface SimpleField extends Annotated {
     String getName();
 
     SimpleClass getDeclaringClass();
@@ -8,8 +8,6 @@ public interface SimpleField extends Annotatable {
     SimpleClass getType();
 
     String getGenericType();
-
-    boolean isMutable();
 
     boolean isPublic();
 

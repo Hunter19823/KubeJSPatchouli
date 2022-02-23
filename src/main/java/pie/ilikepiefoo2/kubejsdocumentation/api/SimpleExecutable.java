@@ -1,6 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.api;
 
-public interface SimpleExecutable extends Annotatable{
+public interface SimpleExecutable extends Annotated {
     String getName();
 
     SimpleClass getDeclaringClass();

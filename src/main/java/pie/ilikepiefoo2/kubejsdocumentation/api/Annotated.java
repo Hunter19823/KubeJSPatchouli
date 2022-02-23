@@ -1,6 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.api;
 
-public interface Annotatable {
+public interface Annotated {
     default SimpleAnnotation[] getAnnotations() {
         return new SimpleAnnotation[0];
     }

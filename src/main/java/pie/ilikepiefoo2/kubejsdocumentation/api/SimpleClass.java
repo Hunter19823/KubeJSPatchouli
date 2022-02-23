@@ -1,6 +1,6 @@
 package pie.ilikepiefoo2.kubejsdocumentation.api;
 
-public interface SimpleClass extends Annotatable {
+public interface SimpleClass extends Annotated {
     SimpleClass getSuperClass();
 
     String getSimpleName();
@@ -9,17 +9,13 @@ public interface SimpleClass extends Annotatable {
 
     SimplePackage getPackage();
 
-    SimpleConstructor[] getDeclaredConstructors();
-    SimpleConstructor[] getInheritedConstructors();
+    SimpleConstructor[] getConstructors();
 
-    SimpleMethod[] getDeclaredMethods();
-    SimpleMethod[] getInheritedMethods();
+    SimpleMethod[] getMethods();
 
-    SimpleField[] getDeclaredFields();
-    SimpleField[] getInheritedFields();
+    SimpleField[] getFields();
 
-    SimpleClass[] getDeclaredClasses();
-    SimpleClass[] getInheritedClasses();
+    SimpleClass[] getClasses();
 
     SimpleVariableType[] getGenericTypes();
 
